@@ -1,3 +1,8 @@
+== Fork of https://bitbucket.org/nosklo/pysmbclient/ ==
+
+This fork adds `-W <workgroup>` to all commands if `SambaClient` is instantiated
+with `domain`.
+
 == Python smbclient wrapper. ==
 
 This is a wrapper that works by running the "smbclient" subprocess and providing
