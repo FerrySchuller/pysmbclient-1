@@ -162,6 +162,9 @@ class SambaClient(object):
         # run-a-new-smbclient-process-each-time implementation
         # TODO: Launch and keep one smbclient running
         cmd = self._smbclient_cmd + ['-c', command.encode('utf8')]
+        if self.auth.get('domain'):
+            cmd.append('-W')
+            cmd.append(self.auth['domain'])
         p = subprocess.Popen(cmd,
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         result = p.communicate()[0].strip()
